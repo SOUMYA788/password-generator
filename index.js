@@ -9,7 +9,6 @@ const includeNumbersElement = document.getElementById("includeNumbers")
 const includeSymbolsElement = document.getElementById("includeSymbols")
 const warningAlert = document.getElementById("warning");
 
-// FUNCTIONS
 let syncCharAmtFunc;
 let setWarning = (message) =>{
     displayScreen.innerText = message;
@@ -31,8 +30,6 @@ form.addEventListener("submit", (e) => {
 })
 
 
-// DEFINE FUNCTIONS.
-
 
 function syncCharAmt(e) {
     const value = e.target.value;
@@ -51,9 +48,6 @@ function generatePassword(charecterAmount, includeUppercase, includeLowerCase, i
     let lower = upper.toLowerCase();
     let numb = "0123456789"
     let symb = `+-*/!@#$%&(){}[];:'"<>?\\|,.€~`
-
-
-
 
     if (includeUppercase == true && includeLowerCase == false && includeNumbers == false && includeSymbols == false) {
         // Complite
