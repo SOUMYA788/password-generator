@@ -7,38 +7,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Simple and Strong Password Generator">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/style.css">
     <title>Password Generator</title>
 </head>
 
-<body>  
+<body class="light_mode">
+
+    <span id="light_dark_toggle_btn">
+        <svg id="dark_light_switch" class="light_on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path
+                d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z" />
+        </svg>
+    </span>
+
     <div id="container">
-        <h1 id="title">Password Generator</h1>
-        <h3 id="displayScreen">Password</h3>
-        <form action="" class="form passwordGeneratorForm">
-            <label for="charecterAmountNumber">Number of Charecters</label>
 
-            <div id="passCharAmtContener">
-                <input type="range" min="1" max="50" id="charecterAmountRange" value="8">
-                <input id="numberInput" type="number" min="1" max="50" id="charecterAmountNumber" value="8">
-            </div>
+        <div>
+            <h2 id="title">Password Generator</h2>
+            <p id="password_screen">Password</p>
+        </div>
 
-            <label for="includeUppercase">Include Uppercase</label>
-            <input type="checkbox" id="includeUppercase">
+        <div id="passwordRangeDiv">
+            <input type="range" min="1" max="50" id="passwordRangeSlider" value="8">
+            <input id="passwordRangeInput" type="number" min="1" max="50" value="8">
+        </div>
 
-            <label for="includeLowercase">Include Lowercase</label>
-            <input type="checkbox" id="includeLowercase">
+        <div id="inputFields">
+            <label class="inputLabel">
+                <input type="checkbox" id="upperCaseCheckbox">
+                <span></span>
+                PASSWORD WITH UPPERCASE
+            </label>
 
-            <label for="includeNumbers">Include Numbers</label>
-            <input type="checkbox" id="includeNumbers">
+            <label class="inputLabel">
+                <input type="checkbox" id="lowerCaseCheckbox">
+                <span></span>
+                PASSWORD WITH LOWERCASE
+            </label>
 
-            <label for="includeSymbols">Include Symbols</label>
-            <input type="checkbox" id="includeSymbols">
+            <label class="inputLabel">
+                <input type="checkbox" id="numberCheckbox">
+                <span></span>
+                PASSWORD WITH NUMBERS
+            </label>
 
-            <button type="submit" class="btn">Generate Your Password</button>
+            <label class="inputLabel">
+                <input type="checkbox" id="symbolCheckbox">
+                <span></span>
+                PASSWORD WITH SYMBOLS
+            </label>
 
-        </form>
+        </div>
+
+        <button id="generateBTN">GENERATE</button>
+
     </div>
+    
+    <script src="index.js"></script>
 </body>
-<script src="index.js"></script>
+
 </html>

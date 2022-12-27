@@ -1,23 +1,29 @@
 // DOM ELEMENTS
 const form = document.getElementsByClassName("passwordGeneratorForm")[0]
-const displayScreen = document.getElementById("displayScreen");
-let charAmtRng = document.getElementById("charecterAmountRange");
-const numInp = document.getElementById("numberInput");
-const includeUppercaseElement = document.getElementById("includeUppercase");
-const includeLowercaseElement = document.getElementById("includeLowercase");
-const includeNumbersElement = document.getElementById("includeNumbers")
-const includeSymbolsElement = document.getElementById("includeSymbols")
+const displayScreen = document.getElementById("password_screen");
+let passwordRangeSlider = document.getElementById("passwordRangeSlider");
+const numInp = document.getElementById("passwordRangeInput");
+const includeUppercaseElement = document.getElementById("upperCaseCheckbox");
+const includeLowercaseElement = document.getElementById("lowerCaseCheckbox");
+const includeNumbersElement = document.getElementById("numberCheckbox")
+const includeSymbolsElement = document.getElementById("symbolCheckbox")
 const warningAlert = document.getElementById("warning");
+const submitBTN = document.getElementById("generateBTN")
+
+document.getElementById("light_dark_toggle_btn").addEventListener("click", () => { 
+    document.body.classList.toggle("light_mode");
+    document.getElementById("dark_light_switch").classList.toggle("light_on");
+})
 
 let syncCharAmtFunc;
-let setWarning = (message) =>{
+let setWarning = (message) => {
     displayScreen.innerText = message;
 }
 
-charAmtRng.addEventListener("input", syncCharAmt);
+passwordRangeSlider.addEventListener("input", syncCharAmt);
 numInp.addEventListener("input", syncCharAmt);
 
-form.addEventListener("submit", (e) => {
+submitBTN.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
     const charecterAmount = numInp.value;
@@ -33,7 +39,7 @@ form.addEventListener("submit", (e) => {
 
 function syncCharAmt(e) {
     const value = e.target.value;
-    charAmtRng.value = value;
+    passwordRangeSlider.value = value;
     numInp.value = value;
     e.preventDefault();
     e.stopPropagation();
@@ -60,7 +66,7 @@ function generatePassword(charecterAmount, includeUppercase, includeLowerCase, i
         displayScreen.innerText = mainPassword;
         passwordChars = "";
         mainPassword = "";
-    } 
+    }
 
     else if (includeUppercase == false && includeLowerCase == true && includeNumbers == false && includeSymbols == false) {
         // Complite
@@ -260,7 +266,7 @@ function generatePassword(charecterAmount, includeUppercase, includeLowerCase, i
         mainPassword = "";
     }
 
-    else{
+    else {
         setWarning(`Please Select an option...`);
     }
 }
