@@ -1,226 +1,208 @@
 :root {
-    --body-background-color: rgba(0, 0, 0, 0.8);
-    --body-color: white;
-    --container-width: 530px;
-    --container-background-color: rgba(0, 0, 0, 0.5);
-    --container-backdrop-filter: blur(9px);
-    --container-border: 1px solid rgba(209, 213, 219, 0.3);
-    --container-padding: 3rem;
-    --container-align-item: center;
-    --container-div-width: 80%;
-    --generate-button-background: rgb(76 76 76);
-    --generate-button-hover: black;
-    --password-screen-background-color: #3e3e3e96;
+  --body-background-color: rgba(0, 0, 0, 0.8);
+  --body-color: white;
+  --container-width: 350px;
+  --container-background-color: rgba(0, 0, 0, 0.5);
+  --container-backdrop-filter: blur(9px);
+  --container-border: 1px solid rgba(209, 213, 219, 0.3);
+  --container-padding: 30px 35px;
+  --container-align-item: center;
+  --container-div-width: 100%;
+  --generate-button-background: rgb(76 76 76);
+  --generate-button-hover: black;
+  --password-screen-background-color: #3e3e3e96;
 }
 
 .light_mode {
-    --body-background-color: #8BC6EC;
-    --body-color: black;
-    --body-background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 54%);
-    --container-width: 400px;
-    --container-background-color: rgba(255, 255, 255, 0.25);
-    --container-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    --container-backdrop-filter: blur(4px);
-    --container-border: 1px solid rgba(255, 255, 255, 0.18);
-    --container-padding: 30px 35px;
-    --container-align-item: flex-start;
-    --container-div-width: 100%;
-    --generate-button-background: #00000050;
-    --generate-button-hover: #F2AE30;
-    --password-screen-background-color: rgba(0, 0, 0, 0.5);
+  --body-background-color: #8bc6ec;
+  --body-color: black;
+  --body-background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 54%);
+  --container-background-color: rgba(255, 255, 255, 0.25);
+  --container-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --container-backdrop-filter: blur(4px);
+  --container-border: 1px solid rgba(255, 255, 255, 0.18);
+  --generate-button-background: #00000050;
+  --generate-button-hover: #f2ae30;
+  --password-screen-background-color: rgba(0, 0, 0, 0.5);
 }
 
 @font-face {
-    font-family: quicksand;
-    src: url(../fonts/Quicksand-Regular.ttf);
+  font-family: quicksand;
+  src: url(../fonts/Quicksand-Regular.ttf);
 }
 
-
 @font-face {
-    font-family: ubantu;
-    src: url(./fonts/Ubuntu-Regular.ttf);
+  font-family: ubantu;
+  src: url(./fonts/Ubuntu-Regular.ttf);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: var(--body-background-color);
-    background-image: var(--body-background-image);
-    color: var(--body-color);
-    min-height: 100vh;
-    font-size: calc((1vw + 1rem)/2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Courier New', Courier, monospace;
+  background-color: var(--body-background-color);
+  background-image: var(--body-background-image);
+  color: var(--body-color);
+  min-height: 100vh;
+  font-size: calc((1vw + 1rem) / 2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
 }
 
-#light_dark_toggle_btn{
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    cursor: pointer;
+#light_dark_toggle_btn {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+  padding: 2px;
+  background-color: black;
+  border-radius: 50%;
+  z-index: 100;
 }
 
-.light_on{
-    fill: #FFFF00;
+#lightTheme,
+#darkTheme {
+  width: 100%;
+  height: 100%;
 }
+
 
 #container {
-    width: var(--container-width);
-    height: 95vh;
-    font-size: 1rem;
-    background-color: var(--container-background-color);
-    box-shadow: var(--container-box-shadow);
-    -webkit-backdrop-filter: var(--container-backdrop-filter);
-    backdrop-filter: var(--container-backdrop-filter);
-    border-radius: 10px;
-    border: 1px solid rgba(209, 213, 219, 0.3);
-    margin: 0 auto;
-    padding: var(--container-padding);
-    display: flex;
-    flex-direction: column;
-    align-items: var(--container-align-item);
-    justify-content: space-between;
+  width: var(--container-width);
+  height: 500px;
+  font-size: 1rem;
+  background-color: var(--container-background-color);
+  box-shadow: var(--container-box-shadow);
+  -webkit-backdrop-filter: var(--container-backdrop-filter);
+  backdrop-filter: var(--container-backdrop-filter);
+  border-radius: 10px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  margin: 0 auto;
+  padding: var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: var(--container-align-item);
+  justify-content: space-between;
 }
-
 
 #container div {
-    width: var(--container-div-width);
+  width: var(--container-div-width);
 }
-
-
 
 #title {
-    font-family: quicksand;
-    text-align: center;
-    font-size: 1rem;
-    text-transform: uppercase;
+  font-family: quicksand;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
 }
-
-
 
 #password_screen {
-    width: 100%;
-    padding: 50px 5px;
-    border: 2px solid black;
-    background-color: var(--password-screen-background-color);
-    color: white;
-    border-radius: 5px;
-    margin-top: 15px;
+  width: 100%;
+  padding: 20px 5px;
+  border: 2px solid black;
+  background-color: var(--password-screen-background-color);
+  color: white;
+  border-radius: 5px;
+  margin-top: 15px;
 }
 
-
-
 #passwordRangeDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #passwordRangeInput {
-    width: 15%;
-    text-align: center;
-    outline: none;
-    border: 1px solid black;
-    padding: 5px;
+  width: 15%;
+  text-align: center;
+  outline: none;
+  border: 1px solid black;
+  padding: 5px;
 }
 
 #passwordRangeSlider {
-    width: 75%;
+  width: 75%;
 }
 
-
 .inputLabel {
-    display: flex;
-    position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    padding-left: 35px;
-    margin-bottom: 25px;
+  display: flex;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding-left: 35px;
+  margin-bottom: 25px;
 }
 
 .inputLabel input {
-    width: 0px;
-    height: 0px;
-    border: 7px solid rgb(0 0 0);
-    opacity: 0;
-    position: absolute;
+  width: 0px;
+  height: 0px;
+  border: 7px solid rgb(0 0 0);
+  opacity: 0;
+  position: absolute;
 }
 
 .inputLabel span {
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
-    background-color: white;
-    border-radius: 50%;
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
 }
 
-.inputLabel input:checked~span {
-    background-color: rgb(0, 255, 85);
+.inputLabel input:checked ~ span {
+  background-color: rgb(0, 255, 85);
 }
 
 #container button {
-    padding: 10px 20px;
-    letter-spacing: 2px;
-    color: rgb(249 249 249);
-    background-color: var(--generate-button-background);
-    cursor: pointer;
-    margin: 0 auto;
-    transition: 0.1s ease;
-    border: 2px solid var(--body-color);
-    outline: none;
+  padding: 10px 20px;
+  letter-spacing: 2px;
+  color: rgb(249 249 249);
+  background-color: var(--generate-button-background);
+  cursor: pointer;
+  margin: 0 auto;
+  transition: 0.1s ease;
+  border: 2px solid var(--body-color);
+  outline: none;
 }
-
 
 #container button:hover {
-    background-color: var(--generate-button-hover);
-    color: var(--body-color);
+  background-color: var(--generate-button-hover);
+  color: var(--body-color);
 }
-
-
-
-
-
-
 
 #warning {
-    width: 80%;
-    height: 10%;
-    margin-top: 2%;
+  width: 80%;
+  height: 10%;
+  margin-top: 2%;
 }
 
-
-@media (max-width:600px) {
-
-    #container {
-        width: 95%;
-    }
-
+@media (max-width: 600px) {
+  #container {
+    width: 95%;
+    height: 90dvh;
+  }
 }
 
-@media (max-width:400px) {
-
-    #container {
-        width: 95%;
-        height: 745px;
-        padding: 2rem;
-    }
+@media (max-width: 400px) {
+  #container {
+    padding: 2rem;
+  }
 }

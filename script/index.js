@@ -9,13 +9,36 @@ const includeNumbersElement = document.getElementById("numberCheckbox")
 const includeSymbolsElement = document.getElementById("symbolCheckbox")
 const warningAlert = document.getElementById("warning");
 const submitBTN = document.getElementById("generateBTN")
+const light_dark_toggle_btn = document.getElementById("light_dark_toggle_btn")
 
-document.getElementById("light_dark_toggle_btn").addEventListener("click", () => { 
+let lightMode = true;
+
+const sunImg = document.createElement("img");
+sunImg.setAttribute("src", "./svg/sun.svg");
+sunImg.setAttribute("alt", "light theme");
+sunImg.setAttribute("id", "lightTheme");
+
+const moonImg = document.createElement("img");
+moonImg.setAttribute("src", "./svg/moon.svg");
+moonImg.setAttribute("alt", "dark theme");
+moonImg.setAttribute("id", "darkTheme");
+
+light_dark_toggle_btn.innerHTML = ""; // clear first one...
+light_dark_toggle_btn.appendChild(sunImg);
+
+light_dark_toggle_btn.addEventListener("click", () => {
     document.body.classList.toggle("light_mode");
-    document.getElementById("dark_light_switch").classList.toggle("light_on");
+    if (lightMode) {
+        light_dark_toggle_btn.innerHTML = ""; // clear first one...
+        light_dark_toggle_btn.appendChild(moonImg);
+        lightMode = false
+    } else {
+        light_dark_toggle_btn.innerHTML = ""; // clear first one...
+        light_dark_toggle_btn.appendChild(sunImg);
+        lightMode = true
+    }
 })
 
-let syncCharAmtFunc;
 let setWarning = (message) => {
     displayScreen.innerText = message;
 }
@@ -34,7 +57,6 @@ submitBTN.addEventListener("click", (e) => {
     const password = generatePassword(charecterAmount, includeUppercase, includeLowercase, includeNumbers, includeSymbols);
 
 })
-
 
 
 function syncCharAmt(e) {
